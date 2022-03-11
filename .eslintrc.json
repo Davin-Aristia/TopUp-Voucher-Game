@@ -22,6 +22,10 @@
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
         "react/react-in-jsx-scope": "off",
-        "react/jsx-indent": "off"
+        "react/jsx-indent": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "react/jsx-first-prop-new-line": "off",
+        "react/jsx-indent-props": "off",
+        "react/jsx-max-props-per-line": "off"
     }
 }
