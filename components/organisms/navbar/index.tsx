@@ -2,8 +2,8 @@
 /* eslint-disable import/extensions */
 import Image from 'next/image';
 import Menu from './Menu';
-import Auth from'./Auth';
-import ToggleMenu from'./ToggleMenu';
+import Auth from './Auth';
+import ToggleMenu from './ToggleMenu';
 
 export default function Navbar() {
   return (
