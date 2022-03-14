@@ -37,10 +37,10 @@ export default function Footer() {
                         <div className="col-md-4 col-12 mt-lg-0 mt-md-0 mt-25">
                             <p className="text-lg fw-semibold color-palette-1 mb-12">Connect</p>
                             <ul className="list-unstyled">
-                            <ContactUs Title="hi@store.gg" href="mailto: hi@store.gg" />
-                            <ContactUs Title="team@store.gg" href="mailto: team@store.gg" />
-                            <ContactUs Title="Pasific 12, Jakarta Selatan" href="http://maps.google.com/?q=Pasific 12,Jakarta Selatan" />
-                            <ContactUs Title="021 - 1122 - 9090" href="tel: 02111229090" />
+                                <ContactUs Title="hi@store.gg" href="mailto: hi@store.gg" />
+                                <ContactUs Title="team@store.gg" href="mailto: team@store.gg" />
+                                <ContactUs Title="Pasific 12, Jakarta Selatan" href="http://maps.google.com/?q=Pasific 12,Jakarta Selatan" />
+                                <ContactUs Title="021 - 1122 - 9090" href="tel: 02111229090" />
                             </ul>
                         </div>
                     </div>
