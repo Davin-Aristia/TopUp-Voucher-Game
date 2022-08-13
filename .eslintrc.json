@@ -27,6 +27,11 @@
         "react/jsx-first-prop-new-line": "off",
         "react/jsx-indent-props": "off",
         "react/jsx-max-props-per-line": "off",
-        "react/jsx-props-no-spreading": "off"
+        "react/jsx-props-no-spreading": "off",
+        "no-underscore-dangle": "off",
+        "react/jsx-one-expression-per-line":"off",
+        "linebreak-style":"off",
+        "space-before-blocks":"off",
+        "indent":"off"
     }
 }
