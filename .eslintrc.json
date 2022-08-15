@@ -32,6 +32,7 @@
         "react/jsx-one-expression-per-line":"off",
         "linebreak-style":"off",
         "space-before-blocks":"off",
-        "indent":"off"
+        "indent":"off",
+        "jsx-a11y/label-has-associated-control": "off"
     }
 }

@@ -1,33 +1,35 @@
-import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
-import Footer from "../../components/organisms/Footer";
-import Navbar from "../../components/organisms/navbar";
-import TopUpForm from "../../components/organisms/TopUpForm";
-import TopUpItem from "../../components/organisms/TopUpItem";
-import { getDetailVoucher } from "../../services/player";
+import { useRouter } from 'next/router';
+import { useCallback, useEffect, useState } from 'react';
+import Footer from '../../components/organisms/Footer';
+import Navbar from '../../components/organisms/navbar';
+import TopUpForm from '../../components/organisms/TopUpForm';
+import TopUpItem from '../../components/organisms/TopUpItem';
+import { getDetailVoucher } from '../../services/player';
 
 export default function Detail() {
-    const {query, isReady} = useRouter()
+    const { query, isReady } = useRouter();
     const [dataItem, setDataItem] = useState({
         name: '',
         thumbnail: '',
         category: {
             name: '',
-        }
-    })
+        },
+    });
 
-    const getVoucherDetailApi = useCallback(async (id)=>{
+    const [nominals, setNominals] = useState([]);
+    const [payments, setPayments] = useState([]);
+
+    const getVoucherDetailApi = useCallback(async (id) => {
         const data = await getDetailVoucher(id);
         console.log('data: ', data);
-        setDataItem(data);
-    }, [])
+        setDataItem(data.detail);
+        setNominals(data.detail.nominals);
+        setPayments(data.payment);
+    }, []);
 
-    useEffect(()=>{
-        if(isReady){
-            console.log('router sudah tersedia', query.id);
+    useEffect(() => {
+        if (isReady){
             getVoucherDetailApi(query.id);
-        }else{
-            console.log('router tidak tersedia');
         }
     }, [isReady]);
   return (
@@ -44,14 +46,14 @@ export default function Detail() {
                     <TopUpItem data={dataItem} type="mobile" />
                 </div>
                 <div className="col-xl-9 col-lg-8 col-md-7 ps-md-25">
-                    <TopUpItem data={dataItem} type="desktop"/>
-                    <hr/>
-                    <TopUpForm />
+                    <TopUpItem data={dataItem} type="desktop" />
+                    <hr />
+                    <TopUpForm nominals={nominals} payments={payments} />
                 </div>
             </div>
         </div>
-    </section>
+        </section>
     <Footer />
     </>
-  )
+  );
 }
