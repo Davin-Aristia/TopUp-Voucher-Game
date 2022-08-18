@@ -2,28 +2,31 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { setLogin } from '../../../services/auth';
 import { useRouter } from 'next/router';
-
+import Cookies from 'js-cookie';
+import { setLogin } from '../../../services/auth';
 
 export default function SignInForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const router=useRouter();
+    const router = useRouter();
 
     const onSubmit = async () => {
         const data = {
             email,
             password,
         };
-        if(!email || !password){
+        if (!email || !password){
             toast.error('Email dan Password wajib diisi!');
-        }else{
+        } else {
             const response = await setLogin(data);
-            if(response.error){
+            if (response.error){
                 toast.error(response.message);
-            }else{
+            } else {
                 toast.success('Login Berhasil');
+                const { token } = response.data;
+                const tokenBase64 = btoa(token);
+                Cookies.set('token', tokenBase64, { expires: 1 });
                 router.push('/');
             }
         }
@@ -67,7 +70,7 @@ export default function SignInForm() {
             </a>
         </Link>
     </div>
-    <ToastContainer/>
+    <ToastContainer />
     </>
   );
 }
