@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 import { BanksTypes, NominalsTypes, PaymentTypes } from '../../../services/data-types';
 import NominalItem from './NominalItem';
 import PaymentItem from './PaymentItem';
-import { toast } from 'react-toastify';
 
 interface TopUpFormProps{
     nominals: NominalsTypes[];
@@ -22,17 +22,17 @@ export default function TopUpForm(props: TopUpFormProps) {
         setNominalItem(data);
     };
 
-    const onPaymentItemChange = (payment: PaymentTypes, banks:BanksTypes) => {
+    const onPaymentItemChange = (payment: PaymentTypes, bank:BanksTypes) => {
         const data = {
             payment,
-            banks,
+            bank,
         };
         setPaymentItem(data);
     };
 
     const onSubmit = () => {
         if (verifyID === '' || bankAccountName === '' || nominalItem === {} || paymentItem === {}){
-            toast.error('silahkan isi semua data!!!')
+            toast.error('silahkan isi semua data!!!');
         } else {
             const data = {
                 verifyID,

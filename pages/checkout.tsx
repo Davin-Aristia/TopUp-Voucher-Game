@@ -5,6 +5,7 @@ import CheckOutConfirmation from '../components/organisms/CheckOutConfirmation';
 import CheckOutDetail from '../components/organisms/CheckOutDetail';
 import CheckOutItem from '../components/organisms/CheckOutItem';
 import { jwtPayloadTypes, UserTypes } from '../services/data-types';
+import { GetServerSideProps } from 'next';
 
 interface CheckoutProps{
     user: UserTypes
@@ -34,26 +35,34 @@ export default function Checkout(props: CheckoutProps) {
   );
 }
 
-export async function getServerSideProps({ req }) {
-    const { token } = req.cookies;
-    if (!token){
+    interface getServerSideProps{
+        req: {
+            cookies: {
+                token: string;
+            }
+        }
+    }
+
+    export async function getServerSideProps({ req }: GetServerSideProps) {
+        const { token } = req.cookies;
+        if (!token){
+            return {
+                redirect: {
+                    destination: '/sign-in',
+                    permanent: false,
+                },
+            };
+        }
+
+        const jwtToken = Buffer.from(token, 'base64').toString('ascii');
+        const payload: jwtPayloadTypes = jwtDecode(jwtToken);
+        console.log('payload: ', payload);
+        const userFromPayload: UserTypes = payload.player;
+        const IMG = process.env.NEXT_PUBLIC_IMG;
+        userFromPayload.avatar = `${IMG}/${userFromPayload.avatar}`;
         return {
-            redirect: {
-                destination: '/sign-in',
-                permanent: false,
+            props: {
+                user: userFromPayload,
             },
         };
     }
-
-    const jwtToken = Buffer.from(token, 'base64').toString('ascii');
-    const payload: jwtPayloadTypes = jwtDecode(jwtToken);
-    console.log('payload: ', payload);
-    const userFromPayload: UserTypes = payload.player;
-    const IMG = process.env.NEXT_PUBLIC_IMG;
-    userFromPayload.avatar = `${IMG}/${userFromPayload.avatar}`;
-    return {
-        props: {
-            user: userFromPayload,
-        },
-    };
-}
