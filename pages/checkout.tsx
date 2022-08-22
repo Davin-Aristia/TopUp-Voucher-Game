@@ -5,7 +5,6 @@ import CheckOutConfirmation from '../components/organisms/CheckOutConfirmation';
 import CheckOutDetail from '../components/organisms/CheckOutDetail';
 import CheckOutItem from '../components/organisms/CheckOutItem';
 import { jwtPayloadTypes, UserTypes } from '../services/data-types';
-import { GetServerSideProps } from 'next';
 
 interface CheckoutProps{
     user: UserTypes
@@ -35,7 +34,7 @@ export default function Checkout(props: CheckoutProps) {
   );
 }
 
-    interface getServerSideProps{
+    interface GetServerSideProps{
         req: {
             cookies: {
                 token: string;

@@ -5,15 +5,17 @@ interface callAPIProps extends AxiosRequestConfig{
     token: boolean;
 }
 
-export default async function callAPI({ url, method, data, token }: callAPIProps){
-    let headers={};
+export default async function callAPI({
+ url, method, data, token,
+}: callAPIProps){
+    let headers = {};
     if (token){
         const tokenCookies = Cookies.get('token');
         if (tokenCookies){
             const jwtToken = atob(tokenCookies);
-            headers={
+            headers = {
                 Authorization: `Bearer ${jwtToken}`,
-            }
+            };
         }
     }
     const response = await axios({
@@ -30,10 +32,12 @@ export default async function callAPI({ url, method, data, token }: callAPIProps
         };
         return res;
     }
+
+    const { length } = Object.keys(response.data);
     const res = {
         error: false,
         message: 'success',
-        data: response.data.data,
+        data: length > 1 ? response.data : response.data.data,
     };
     return res;
 }

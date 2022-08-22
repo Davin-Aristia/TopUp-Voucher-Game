@@ -12,7 +12,7 @@ export default function Member() {
   )
 }
 
-interface getServerSideProps{
+interface GetServerSideProps{
   req: {
       cookies: {
           token: string;
