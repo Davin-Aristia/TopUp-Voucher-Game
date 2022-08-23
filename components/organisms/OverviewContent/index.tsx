@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { HistoryTransactonTypes, TopupCategoriesTypes } from '../../../services/data-types';
+import { HistoryTransactionTypes, TopupCategoriesTypes } from '../../../services/data-types';
 import { getMemberOverview } from '../../../services/member';
 import Category from './Category';
 import TableRow from './TableRow';
@@ -50,7 +50,7 @@ export default function OverviewContent() {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map((item: HistoryTransactonTypes) => (
+                        {data.map((item: HistoryTransactionTypes) => (
                             <TableRow
                                 key={item._id}
                                 image={`${IMG}/${item.historyVoucherTopup.thumbnail}`}

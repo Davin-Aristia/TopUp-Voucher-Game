@@ -19,6 +19,7 @@ export default function Auth() {
             const jwtToken = atob(token);
             const payload: jwtPayloadTypes = jwtDecode(jwtToken);
             const userFromPayload: UserTypes = payload.player;
+            console.log('user payload navbar:', userFromPayload);
             // dua baris ini: const img dan user.avatar dihapus di "Memperbaiki URL Avatar"
             const IMG = process.env.NEXT_PUBLIC_IMG;
             user.avatar = `${IMG}/${userFromPayload.avatar}`;
