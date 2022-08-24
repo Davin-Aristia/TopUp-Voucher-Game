@@ -17,7 +17,6 @@ export default function Profile() {
         const jwtToken = atob(token);
         const payload: jwtPayloadTypes = jwtDecode(jwtToken);
         const userFromPayload: UserTypes = payload.player;
-        console.log('user payload sidebar:', userFromPayload);
         setUser(userFromPayload);
     }
 }, []);

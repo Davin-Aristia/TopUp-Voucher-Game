@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import SignUpForm from '../Components/organisms/SignUpForm';
 import Link from 'next/link';
+import SignUpForm from '../Components/organisms/SignUpForm';
 
 export default function SignUp() {
   return (
@@ -8,7 +8,7 @@ export default function SignUp() {
         <div className="container mx-auto">
             <form action="">
                 <div className="pb-50">
-                    <Link href="/" >
+                    <Link href="/">
                     <a className="navbar-brand">
                         <Image src="/icon/logo.svg" width={60} height={60} />
                     </a>
@@ -18,5 +18,5 @@ export default function SignUp() {
             </form>
         </div>
     </section>
-  )
+  );
 }

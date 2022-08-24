@@ -6,13 +6,7 @@ import CheckOutDetail from '../components/organisms/CheckOutDetail';
 import CheckOutItem from '../components/organisms/CheckOutItem';
 import { jwtPayloadTypes, UserTypes } from '../services/data-types';
 
-interface CheckoutProps{
-    user: UserTypes
-}
-
-export default function Checkout(props: CheckoutProps) {
-    const { user } = props;
-    console.log(user);
+export default function Checkout() {
   return (
     <section className="checkout mx-auto pt-md-100 pb-md-145 pt-30 pb-30">
         <div className="container-fluid">
@@ -55,13 +49,10 @@ export default function Checkout(props: CheckoutProps) {
 
         const jwtToken = Buffer.from(token, 'base64').toString('ascii');
         const payload: jwtPayloadTypes = jwtDecode(jwtToken);
-        console.log('payload: ', payload);
         const userFromPayload: UserTypes = payload.player;
         const IMG = process.env.NEXT_PUBLIC_IMG;
         userFromPayload.avatar = `${IMG}/${userFromPayload.avatar}`;
         return {
-            props: {
-                user: userFromPayload,
-            },
+            props: {},
         };
     }

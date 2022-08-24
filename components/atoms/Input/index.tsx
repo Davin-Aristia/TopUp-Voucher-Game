@@ -1,10 +1,11 @@
-export interface InputProps{
+import { InputHTMLAttributes } from 'react';
+
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
     label : string;
-    placeholder : string;
 }
 
 export default function Input(props: InputProps) {
-  const { label, placeholder, ...nativeProps } = props;
+  const { label, ...nativeProps } = props;
   return (
     <>
     <label htmlFor="name" className="form-label text-lg fw-medium color-palette-1 mb-10">{label}</label>
@@ -14,7 +15,6 @@ export default function Input(props: InputProps) {
         id="name"
         name="name"
         aria-describedby="name"
-        placeholder={placeholder}
         {...nativeProps}
     />
     </>

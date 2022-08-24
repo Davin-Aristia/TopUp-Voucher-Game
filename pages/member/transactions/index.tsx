@@ -1,7 +1,5 @@
-import jwtDecode from "jwt-decode";
-import SideBar from "../../../Components/organisms/SideBar";
-import TransactionContent from "../../../Components/organisms/TransactionContent";
-import { jwtPayloadTypes, UserTypes } from "../../../services/data-types";
+import SideBar from '../../../Components/organisms/SideBar';
+import TransactionContent from '../../../Components/organisms/TransactionContent';
 
 export default function Transactions() {
   return (
@@ -9,7 +7,7 @@ export default function Transactions() {
         <SideBar activeMenu="transactions" />
         <TransactionContent />
     </section>
-  )
+  );
 }
 
 interface GetServerSideProps{

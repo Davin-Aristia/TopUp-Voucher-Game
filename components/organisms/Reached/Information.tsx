@@ -3,7 +3,7 @@ interface InformationProps{
     info : string;
 }
 
-export default function Information(props) {
+export default function Information(props:InformationProps) {
   const {title, info} = props;
   return (
     <div className="me-lg-35">

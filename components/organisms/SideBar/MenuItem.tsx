@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 interface MenuItemProps{
     title : string;
-    icon : 'ic-menu-card' | 'ic-menu-LogOut' | ' ic-menu-messages' | ' ic-menu-overview' | ' ic-menu-rewards' | ' ic-menu-settings' | ' ic-menu-transaction';
+    icon : string;
     active? : boolean;
     href? : string;
     onClick?: () => void;
@@ -12,7 +12,7 @@ interface MenuItemProps{
 
 export default function MenuItem(props: Partial<MenuItemProps>) {
     const {
- title, icon, active, href, onClick,
+ title, icon, active, href = '/', onClick,
 } = props;
     const classItem = cx({
         item: true,

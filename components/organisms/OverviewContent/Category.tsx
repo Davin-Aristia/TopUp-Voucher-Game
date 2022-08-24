@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { ReactNode } from 'react';
 import NumberFormat from 'react-number-format';
 
 interface CategoryProps {
@@ -8,7 +9,7 @@ interface CategoryProps {
 }
 
 export default function Category(props : CategoryProps) {
-  const {children, price, icon } = props;
+  const { children, price, icon } = props;
   return (
     <div className="col-lg-4 ps-15 pe-15 pb-lg-0 pb-4">
         <div className="categories-card">
@@ -24,9 +25,10 @@ export default function Category(props : CategoryProps) {
                             displayType="text"
                             thousandSeparator="."
                             decimalSeparator=","
-                        /></p>
+                />
+                </p>
             </div>
         </div>
     </div>
-  )
+  );
 }

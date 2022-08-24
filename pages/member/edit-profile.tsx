@@ -8,8 +8,16 @@ import SideBar from '../../Components/organisms/SideBar';
 import { jwtPayloadTypes, UserTypes } from '../../services/data-types';
 import { getProfile, updateProfile } from '../../services/member';
 
+interface UserStateTypes {
+    id: string;
+    username: string;
+    email: string;
+    avatar: any;
+    phoneNumber: string;
+}
+
 export default function EditProfile() {
-    const [user, setUser] = useState({
+    const [user, setUser] = useState<UserStateTypes>({
         id: '',
         username: '',
         email: '',
@@ -17,7 +25,7 @@ export default function EditProfile() {
         phoneNumber: '',
     });
     const [name, setName] = useState('');
-    const [imagePreview, setImagePreview] = useState(null);
+    const [imagePreview, setImagePreview] = useState('/');
     const router = useRouter();
     const IMG = process.env.NEXT_PUBLIC_IMG;
 
@@ -63,10 +71,10 @@ export default function EditProfile() {
                         <div className="photo d-flex">
                             <div className="image-upload">
                                 <label htmlFor="avatar">
-                                    {imagePreview ? (
-                                        <img src={imagePreview} alt="icon upload" width={90} height={90} style={{ borderRadius: '100%' }} />
-                                    ) : (
+                                    {imagePreview === '/' ? (
                                         <img src={`${IMG}/${user.avatar}`} alt="icon upload" width={90} height={90} style={{ borderRadius: '100%' }} />
+                                    ) : (
+                                        <img src={imagePreview} alt="icon upload" width={90} height={90} style={{ borderRadius: '100%' }} />
                                     )}
                                 </label>
                                 <input
@@ -75,7 +83,7 @@ export default function EditProfile() {
                                     name="avatar"
                                     accept="image/png, image/jpeg"
                                     onChange={(event) => {
-                                        const img = event.target.files[0];
+                                        const img = event.target.files![0];
                                         setImagePreview(URL.createObjectURL(img));
                                         return setUser({
                                             ...user,

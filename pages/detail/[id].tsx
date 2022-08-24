@@ -1,5 +1,4 @@
-import { useRouter } from 'next/router';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Footer from '../../components/organisms/Footer';
 import Navbar from '../../components/organisms/navbar';
 import TopUpForm from '../../components/organisms/TopUpForm';
@@ -12,10 +11,10 @@ interface DetailProps {
     nominals: NominalsTypes[];
     payments: PaymentTypes[];
 }
-export default function Detail({dataItem, nominals, payments}: DetailProps) {
-    useEffect(()=>{
+export default function Detail({ dataItem, nominals, payments }: DetailProps) {
+    useEffect(() => {
         localStorage.setItem('data-item', JSON.stringify(dataItem));
-    },[]);
+    }, []);
   return (
     <>
     <Navbar />
@@ -46,14 +45,13 @@ export async function getStaticPaths() {
     const data = await getFeaturedGame();
     const paths = data.map((item: GameItemTypes) => ({
         params: {
-            id:item._id,
-        }
+            id: item._id,
+        },
     }));
-    console.log('paths:', paths)
     return {
         paths,
         fallback: false,
-    }
+    };
 }
 
 interface GetStaticProps {
@@ -62,13 +60,12 @@ interface GetStaticProps {
     }
 }
 
-export async function getStaticProps({params}: GetStaticProps) {
+export async function getStaticProps({ params }: GetStaticProps) {
     const { id } = params;
     const data = await getDetailVoucher(id);
-    console.log('data:', data)
-    return{
-        props:{
+    return {
+        props: {
             dataItem: data.detail, nominals: data.detail.nominals, payments: data.payment,
-        }
-    }
+        },
+    };
 }
