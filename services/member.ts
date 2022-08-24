@@ -49,3 +49,13 @@ export async function updateProfile(data:FormData){
         token: true,
     });
 }
+
+export async function getProfile(){
+    const url = `${ROOT_API}/${API_VERSION}/players/profile`;
+
+    return callAPI({
+        url,
+        method: 'GET',
+        token: true,
+    });
+}

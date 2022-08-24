@@ -1,12 +1,12 @@
 import Cookies from 'js-cookie';
 import jwtDecode from 'jwt-decode';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import Input from '../../Components/atoms/Input';
 import SideBar from '../../Components/organisms/SideBar';
 import { jwtPayloadTypes, UserTypes } from '../../services/data-types';
-import { updateProfile } from '../../services/member';
+import { getProfile, updateProfile } from '../../services/member';
 
 export default function EditProfile() {
     const [user, setUser] = useState({
@@ -16,34 +16,38 @@ export default function EditProfile() {
         avatar: '',
         phoneNumber: '',
     });
+    const [name, setName] = useState('');
     const [imagePreview, setImagePreview] = useState(null);
     const router = useRouter();
     const IMG = process.env.NEXT_PUBLIC_IMG;
+
+    const getProfileName = useCallback(async () => {
+        const data = await getProfile();
+        setName(data.data.name);
+    }, []);
 
     useEffect(() => {
         const token = Cookies.get('token');
         if (token){
             const jwtToken = atob(token);
-            console.log('jwtToken:', jwtToken)
             const payload: jwtPayloadTypes = jwtDecode(jwtToken);
-            console.log('payload:', payload);
             const userFromPayload: UserTypes = payload.player;
             setUser(userFromPayload);
+            getProfileName();
         }
     }, []);
 
     const onSubmit = async () => {
-        console.log('data:', user);
         const data = new FormData();
 
         data.append('image', user.avatar);
         data.append('username', user.username);
+        data.append('name', name);
         data.append('phoneNumber', user.phoneNumber);
         const response = await updateProfile(data);
         if (response.error){
             toast.error(response.message);
         } else {
-            console.log('data:', response);
             Cookies.remove('token');
             router.push('/sign-in');
         }
@@ -82,7 +86,10 @@ export default function EditProfile() {
                             </div>
                         </div>
                         <div className="pt-30">
-                            <Input label="Full Name" value={user.username} onChange={(event) => setUser({
+                            <Input label="Full Name" value={name} onChange={(event) => setName(event.target.value)} />
+                        </div>
+                        <div className="pt-30">
+                            <Input label="Username" value={user.username} onChange={(event) => setUser({
                                 ...user,
                                 username: event.target.value,
                             })}
@@ -95,7 +102,7 @@ export default function EditProfile() {
                             <Input label="Phone" value={user.phoneNumber} onChange={(event) => setUser({
                                 ...user,
                                 phoneNumber: event.target.value,
-                                })} 
+                                })}
                             />
                         </div>
                         <div className="button-group d-flex flex-column pt-50">
