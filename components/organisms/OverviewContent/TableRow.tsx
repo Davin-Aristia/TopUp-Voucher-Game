@@ -41,7 +41,8 @@ export default function TableRow(props: TableRowProps) {
                             displayType="text"
                             thousandSeparator="."
                             decimalSeparator=","
-                        /></p>
+            />
+            </p>
         </td>
         <td>
             <div>

@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import jwtDecode from 'jwt-decode';
-import CheckOutConfirmation from '../components/organisms/CheckOutConfirmation';
-import CheckOutDetail from '../components/organisms/CheckOutDetail';
-import CheckOutItem from '../components/organisms/CheckOutItem';
 import { jwtPayloadTypes, UserTypes } from '../services/data-types';
+import CheckOutItem from '../Components/organisms/CheckOutItem';
+import CheckOutDetail from '../Components/organisms/CheckOutDetail';
+import CheckOutConfirmation from '../Components/organisms/CheckOutConfirmation';
 
 export default function Checkout() {
   return (

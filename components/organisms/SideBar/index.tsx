@@ -1,4 +1,4 @@
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import Footer from './Footer';
 import MenuItem from './MenuItem';

@@ -25,10 +25,10 @@ export default function TransactionContent() {
         getMemberTransactionAPI('All');
     }, []);
 
-    const onTabClick = (value: string) =>{
+    const onTabClick = (value: string) => {
         setTab(value);
         getMemberTransactionAPI(value);
-    }
+    };
 
     const IMG = process.env.NEXT_PUBLIC_IMG;
   return (
@@ -49,10 +49,10 @@ export default function TransactionContent() {
             <div className="row mt-30 mb-20">
                 <div className="col-lg-12 col-12 main-content">
                     <div id="list_status_title">
-                        <ButtonTab onClick={()=>onTabClick('All')} title="All Trx" active={tab === 'All'} />
-                        <ButtonTab onClick={()=>onTabClick('Success')} title="Success" active={tab === 'Success'} />
-                        <ButtonTab onClick={()=>onTabClick('Pending')} title="Pending" active={tab === 'Pending'} />
-                        <ButtonTab onClick={()=>onTabClick('Failed')} title="Failed" active={tab === 'Failed'} />
+                        <ButtonTab onClick={() => onTabClick('All')} title="All Trx" active={tab === 'All'} />
+                        <ButtonTab onClick={() => onTabClick('Success')} title="Success" active={tab === 'Success'} />
+                        <ButtonTab onClick={() => onTabClick('Pending')} title="Pending" active={tab === 'Pending'} />
+                        <ButtonTab onClick={() => onTabClick('Failed')} title="Failed" active={tab === 'Failed'} />
                     </div>
                 </div>
             </div>

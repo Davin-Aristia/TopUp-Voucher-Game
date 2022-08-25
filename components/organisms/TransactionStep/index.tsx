@@ -1,4 +1,4 @@
-import StepItem from "../../molecules/StepItem"
+import StepItem from '../../molecules/StepItem';
 
 export default function TransactionStep() {
   return (
@@ -6,7 +6,7 @@ export default function TransactionStep() {
     <div className="container-fluid">
         <h2 className="text-4xl fw-bold color-palette-1 text-center mb-30">
             It’s Really That
-            <br/> 
+            <br />
             Easy to Win the Game
         </h2>
         <div className="row gap-lg-0 gap-4" data-aos="fade-up">
@@ -15,6 +15,6 @@ export default function TransactionStep() {
             <StepItem icon="step3" title="3. Be a Winner" desc1="Siap digunakan untuk" desc2="improve permainan kamu" />
         </div>
     </div>
-</section>
-  )
+    </section>
+  );
 }

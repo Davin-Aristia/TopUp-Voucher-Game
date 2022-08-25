@@ -9,10 +9,11 @@ export default function Footer() {
             <div className="row">
                 <div className="col-lg-4 text-lg-start text-center">
                     <a href="" className="mb-30">
-                        <Image src="/icon/logo.svg" width={60} height={60}/>
+                        <Image src="/icon/logo.svg" width={60} height={60} />
                     </a>
-                    <p className="mt-30 text-lg color-palette-1 mb-30">StoreGG membantu gamers<br/> untuk menjadi
-                        pemenang sejati</p>
+                    <p className="mt-30 text-lg color-palette-1 mb-30">StoreGG membantu gamers<br /> untuk menjadi
+                        pemenang sejati
+                    </p>
                     <p className="mt-30 text-lg color-palette-1 mb-30">Copyright 2021. All Rights Reserved.</p>
                 </div>
                 <div className="col-lg-8 mt-lg-0 mt-20">
@@ -22,16 +23,16 @@ export default function Footer() {
                             <ul className="list-unstyled">
                                 <ContactUs Title="About Us" />
                                 <ContactUs Title="Press Release" />
-                                <ContactUs Title="Terms of Use"/>
-                                <ContactUs Title="Privacy & Policy"/>
+                                <ContactUs Title="Terms of Use" />
+                                <ContactUs Title="Privacy & Policy" />
                             </ul>
                         </div>
                         <div className="col-md-4 col-6 mb-lg-0 mb-25">
                             <p className="text-lg fw-semibold color-palette-1 mb-12">Support</p>
                             <ul className="list-unstyled">
-                                <ContactUs Title="Refund & Policy"/>
-                                <ContactUs Title="Unlock Rewards"/>
-                                <ContactUs Title="Live Chatting"/>
+                                <ContactUs Title="Refund & Policy" />
+                                <ContactUs Title="Unlock Rewards" />
+                                <ContactUs Title="Live Chatting" />
                             </ul>
                         </div>
                         <div className="col-md-4 col-12 mt-lg-0 mt-md-0 mt-25">
@@ -48,6 +49,6 @@ export default function Footer() {
             </div>
         </div>
     </footer>
-</section>
-  )
+    </section>
+  );
 }
