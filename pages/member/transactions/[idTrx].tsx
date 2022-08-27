@@ -1,5 +1,5 @@
 import jwtDecode from 'jwt-decode';
-import TransactionDetailContent from '../../../Components/organisms/TransactionDetailContent';
+import TransactionDetailContent from '../../../components/organisms/TransactionDetailContent';
 import { HistoryTransactionTypes, jwtPayloadTypes, UserTypes } from '../../../services/data-types';
 import { getTransactionDetail } from '../../../services/member';
 

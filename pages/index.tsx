@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import AOS from 'aos';
 import Head from 'next/head';
-import Navbar from '../Components/organisms/navbar';
-import MainBanner from '../Components/organisms/MainBanner';
-import TransactionStep from '../Components/organisms/TransactionStep';
-import FeaturedGame from '../Components/organisms/FeaturedGame';
-import Reached from '../Components/organisms/Reached';
-import Story from '../Components/organisms/Story';
-import Footer from '../Components/organisms/Footer';
+import Navbar from '../components/organisms/navbar';
+import MainBanner from '../components/organisms/MainBanner';
+import TransactionStep from '../components/organisms/TransactionStep';
+import FeaturedGame from '../components/organisms/FeaturedGame';
+import Reached from '../components/organisms/Reached';
+import Story from '../components/organisms/Story';
+import Footer from '../components/organisms/Footer';
 
 export default function Home() {
     useEffect(() => {

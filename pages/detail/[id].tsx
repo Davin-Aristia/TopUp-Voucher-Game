@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import Footer from '../../Components/organisms/Footer';
-import Navbar from '../../Components/organisms/navbar';
-import TopUpForm from '../../Components/organisms/TopUpForm';
-import TopUpItem from '../../Components/organisms/TopUpItem';
+import Footer from '../../components/organisms/Footer';
+import Navbar from '../../components/organisms/navbar';
+import TopUpForm from '../../components/organisms/TopUpForm';
+import TopUpItem from '../../components/organisms/TopUpItem';
 import { GameItemTypes, NominalsTypes, PaymentTypes } from '../../services/data-types';
 import { getDetailVoucher, getFeaturedGame } from '../../services/player';
 

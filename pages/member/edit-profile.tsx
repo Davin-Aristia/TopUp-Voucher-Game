@@ -3,8 +3,8 @@ import jwtDecode from 'jwt-decode';
 import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
-import Input from '../../Components/atoms/Input';
-import SideBar from '../../Components/organisms/SideBar';
+import Input from '../../components/atoms/Input';
+import SideBar from '../../components/organisms/SideBar';
 import { jwtPayloadTypes, UserTypes } from '../../services/data-types';
 import { getProfile, updateProfile } from '../../services/member';
 

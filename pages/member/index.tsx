@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
-import OverviewContent from '../../Components/organisms/OverviewContent';
-import SideBar from '../../Components/organisms/SideBar';
+import OverviewContent from '../../components/organisms/OverviewContent';
+import SideBar from '../../components/organisms/SideBar';
 import { jwtPayloadTypes, UserTypes } from '../../services/data-types';
 
 export default function Member() {
